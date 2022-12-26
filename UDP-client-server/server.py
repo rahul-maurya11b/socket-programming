@@ -10,9 +10,9 @@ server.bind((localhost, Port))
 print("UDP server up and listening")
 # Listen for incoming datagrams
 while(True):
-    bytesAddressPair = server.recvfrom(1024)
-    message = bytesAddressPair[0]
-    address = bytesAddressPair[1]
+    data = server.recvfrom(1024)
+    message =data[0]
+    address = data[1]
     print(f"client{address} has message{message }")
     # Sending a reply to client
     server.sendto(bytes((msg).encode()), address)
